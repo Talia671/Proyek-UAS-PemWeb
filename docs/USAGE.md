@@ -12,13 +12,23 @@ Panduan lengkap penggunaan ShoeBrand Store E-commerce System untuk admin dan cus
 
 ## 🎯 Akses Aplikasi
 
-Buka browser dan akses: `http://localhost/UAS_PWEB`
+Buka browser dan akses: `http://localhost/backup.taliah`
 
 ---
 
-## 👤 Untuk Pengguna (User)
+## 🛍️ Untuk Customer (Pengguna)
 
 ### 1. **Registrasi & Login**
+
+#### Cara Registrasi:
+1. Klik tombol **"Register"** di navigation bar
+2. Isi form registrasi:
+   - Username (unik)
+   - Email
+   - Password
+   - Konfirmasi password
+3. Klik **"Register"**
+4. Login dengan akun yang baru dibuat
 
 #### Cara Login:
 1. Klik tombol **"Login"** di navigation bar
@@ -29,72 +39,91 @@ Buka browser dan akses: `http://localhost/UAS_PWEB`
 - **Username**: `user`
 - **Password**: `user123`
 
-### 2. **Melihat Jadwal**
+### 2. **Browsing Produk**
 
-#### Dari Halaman Utama:
-- **Jadwal Terbaru**: 3 jadwal terbaru ditampilkan di homepage
-- **Lihat Semua**: Klik **"Lihat Semua Jadwal"** untuk melihat seluruh jadwal
+#### Halaman Utama:
+- **Hero Section**: Banner utama dengan koleksi terbaru
+- **Kategori Produk**: Pilih kategori sepatu/sandal
+- **Produk Terbaru**: 8 produk terbaru ditampilkan
+- **Search Bar**: Cari produk dengan kata kunci
 
-#### Dari Menu Schedules:
-1. Klik **"Schedules"** di navigation bar
-2. Browse semua jadwal yang tersedia
-3. Informasi yang ditampilkan:
-   - Rute perjalanan (Origin → Destination)
-   - Waktu keberangkatan dan tiba
-   - Informasi bus (merek, plat nomor)
-   - Harga tiket
-   - Tombol booking
+#### Halaman Produk:
+1. Klik **"Lihat Semua Produk"** atau menu **"Products"**
+2. Browse semua produk yang tersedia
+3. Filter berdasarkan:
+   - Kategori (Sepatu Sneakers, Formal, Sandal, dll)
+   - Pencarian nama produk
+   - Range harga
 
-### 3. **Pemesanan Tiket**
+#### Detail Produk:
+- Klik produk untuk melihat detail lengkap
+- Informasi yang ditampilkan:
+  - Gambar produk (multiple images)
+  - Nama dan deskripsi
+  - Harga
+  - Kategori
+  - Stok tersedia
+  - Spesifikasi produk
 
-#### Step-by-Step Booking:
-1. **Pilih Jadwal**: Klik **"Book Now"** pada jadwal yang diinginkan
-2. **Isi Data Penumpang**:
+### 3. **Keranjang Belanja**
+
+#### Menambah ke Keranjang:
+1. Pada halaman produk, klik **"Add to Cart"**
+2. Pilih quantity yang diinginkan
+3. Produk akan masuk ke keranjang
+4. Notifikasi konfirmasi akan muncul
+
+#### Mengelola Keranjang:
+1. Klik icon **"Cart"** di navigation bar
+2. Lihat semua item dalam keranjang
+3. Update quantity atau hapus item
+4. Cek total harga keseluruhan
+
+#### Fitur Keranjang:
+- **Update Quantity**: Ubah jumlah item
+- **Remove Item**: Hapus item dari keranjang
+- **Continue Shopping**: Kembali ke katalog produk
+- **Checkout**: Lanjut ke pembayaran
+
+### 4. **Proses Checkout**
+
+#### Langkah Checkout:
+1. Dari halaman cart, klik **"Checkout"**
+2. **Informasi Pengiriman**:
    - Nama lengkap
-   - Email
+   - Alamat pengiriman
    - Nomor telepon
-3. **Pilih Kursi**: Pilih nomor kursi yang tersedia (kursi yang sudah dipesan akan disabled)
-4. **Pilih Metode Pembayaran**:
-   - Bank Transfer
+   - Catatan khusus (opsional)
+3. **Pilih Metode Pembayaran**:
+   - Transfer Bank
    - Credit Card
-   - Cash
-5. **Review Booking**: Cek ringkasan pemesanan di sidebar
-6. **Submit**: Klik **"Book Ticket"**
+   - E-wallet
+   - Cash on Delivery
+4. **Review Pesanan**:
+   - Cek item yang dipesan
+   - Verifikasi alamat pengiriman
+   - Konfirmasi total pembayaran
+5. **Place Order**: Klik untuk menyelesaikan pesanan
 
-#### Konfirmasi Booking:
-- Setelah berhasil booking, Anda akan diarahkan ke halaman konfirmasi
-- Simpan ID tiket untuk referensi
+#### Konfirmasi Pesanan:
+- Setelah berhasil checkout, akan muncul halaman konfirmasi
+- Order ID akan diberikan untuk tracking
+- Email konfirmasi akan dikirim (jika ada)
 
-### 4. **Melihat Riwayat Pemesanan**
+### 5. **Riwayat Pembelian**
 
-#### Akses My Bookings:
+#### Akses Order History:
 1. Login terlebih dahulu
-2. Klik **"My Bookings"** di navigation bar
-3. Lihat semua tiket yang pernah Anda pesan
+2. Klik **"My Orders"** di dropdown user
+3. Lihat semua pesanan yang pernah dibuat
 
 #### Informasi yang Ditampilkan:
-- Rute perjalanan
-- Waktu keberangkatan dan tiba
-- Informasi bus
-- Nomor kursi dan nama penumpang
-- Status pembayaran
+- Order ID dan tanggal pemesanan
+- Daftar produk yang dibeli
+- Status pesanan (Pending, Processing, Shipped, Delivered)
+- Total pembayaran
+- Informasi pengiriman
 - Metode pembayaran
-- Total harga
-
-#### Fitur Tiket:
-- **Print Ticket**: Klik untuk download/print tiket
-
-### 5. **Mengelola Profil**
-
-#### Akses Profil:
-1. Klik dropdown nama pengguna di navigation bar
-2. Pilih **"Profile"**
-
-#### Update Profil:
-1. **Username**: Ubah nama pengguna
-2. **Password**: Ganti password (opsional)
-3. **Konfirmasi**: Masukkan password lama untuk konfirmasi
-4. Klik **"Update Profile"**
 
 ---
 
@@ -109,23 +138,26 @@ Buka browser dan akses: `http://localhost/UAS_PWEB`
 #### Cara Login:
 1. Akses halaman login
 2. Login dengan akun admin
-3. Akan diarahkan ke dashboard admin
+3. Akan diarahkan ke dashboard admin di `/admin/`
 
 ### 2. **Dashboard Admin**
 
+#### URL Admin: `http://localhost/backup.taliah/admin/`
+
 #### Fitur Dashboard:
-- **Overview**: Statistik sistem
-- **Quick Navigation**: Akses cepat ke semua modul
+- **Overview**: Statistik penjualan dan sistem
+- **Quick Stats**: Total produk, kategori, user, transaksi
 - **Recent Activity**: Log aktivitas terbaru
+- **Sales Chart**: Grafik penjualan (jika ada)
 
 #### Menu Sidebar:
 - 🏠 **Dashboard**: Halaman utama admin
 - 👥 **Manage Users**: Kelola pengguna
-- 🚌 **Manage Buses**: Kelola armada bus
-- 🛤️ **Manage Routes**: Kelola rute perjalanan
-- 📅 **Manage Schedules**: Kelola jadwal
+- 🏷️ **Manage Categories**: Kelola kategori produk
+- 🛍️ **Manage Products**: Kelola produk
 - 💳 **Manage Transactions**: Monitor transaksi
-- 📊 **User Activity**: Log aktivitas
+- 📊 **Reports**: Laporan penjualan
+- ⚙️ **Settings**: Pengaturan sistem
 
 ### 3. **Manajemen Data**
 
@@ -134,58 +166,60 @@ Buka browser dan akses: `http://localhost/UAS_PWEB`
 - **Tambah User**: Klik **"Add New User"**
 - **Edit User**: Klik tombol **"Edit"** pada user yang ingin diubah
 - **Hapus User**: Klik tombol **"Delete"** (konfirmasi required)
+- **Role Management**: Atur role admin/customer
 
-#### 🚌 Manage Buses
-- **Lihat Armada**: Daftar bus dengan status
-- **Tambah Bus Baru**:
-  1. Klik **"Add New Bus"**
-  2. Isi form: Plate Number, Brand, Seat Count, Status
+#### 🏷️ Manage Categories
+- **Lihat Kategori**: Daftar semua kategori produk
+- **Tambah Kategori Baru**:
+  1. Klik **"Add New Category"**
+  2. Isi nama kategori
+  3. Tambahkan deskripsi
+  4. Submit
+- **Edit Kategori**: Update informasi kategori
+- **Hapus Kategori**: Remove kategori (pastikan tidak ada produk terkait)
+
+#### 🛍️ Manage Products
+- **Lihat Produk**: Daftar semua produk dengan gambar
+- **Tambah Produk Baru**:
+  1. Klik **"Add New Product"**
+  2. Isi form produk:
+     - Nama produk
+     - Deskripsi
+     - Kategori
+     - Harga
+     - Stok
+     - Upload gambar (multiple)
   3. Submit
-- **Edit Bus**: Update informasi bus
-- **Hapus Bus**: Remove bus dari sistem
-
-#### 🛤️ Manage Routes
-- **Lihat Rute**: Daftar semua rute perjalanan
-- **Tambah Rute Baru**:
-  1. Origin (kota asal)
-  2. Destination (kota tujuan)
-  3. Distance (jarak dalam km)
-  4. Estimated Time (estimasi waktu)
-- **Edit/Hapus**: Modifikasi atau hapus rute
-
-#### 📅 Manage Schedules
-- **Lihat Jadwal**: Semua jadwal dengan detail lengkap
-- **Tambah Jadwal Baru**:
-  1. **Pilih Rute**: Dropdown dengan info rute
-  2. **Pilih Bus**: Dropdown bus yang available
-  3. **Departure Time**: Waktu keberangkatan
-  4. **Arrival Time**: Otomatis dihitung
-  5. **Price**: Harga tiket
-- **Edit/Hapus**: Modifikasi jadwal existing
+- **Edit Produk**: Update informasi produk
+- **Hapus Produk**: Remove produk dari sistem
+- **Manage Images**: Upload/hapus gambar produk
 
 #### 💳 Manage Transactions
-- **Monitor Pembayaran**: Status semua transaksi
-- **Update Status**: Ubah status pembayaran
-- **Detail Transaksi**: Lihat detail lengkap
+- **Monitor Pesanan**: Status semua transaksi
+- **Update Status**: Ubah status pesanan
+- **Detail Transaksi**: Lihat detail lengkap pesanan
+- **Payment Verification**: Konfirmasi pembayaran manual
 
-#### 📊 User Activity
-- **Log Aktivitas**: Semua aktivitas pengguna
-- **Filter**: Berdasarkan user atau jenis aktivitas
-- **Export**: Download laporan aktivitas
+#### 📊 Reports
+- **Sales Report**: Laporan penjualan per periode
+- **Product Report**: Produk terlaris
+- **Customer Report**: Data customer aktif
+- **Export**: Download laporan dalam format Excel/PDF
 
 ### 4. **Tips Admin**
 
 #### Best Practices:
 1. **Regular Backup**: Backup database secara rutin
-2. **Monitor Activity**: Cek log aktivitas pengguna
-3. **Update Status**: Pastikan status bus dan pembayaran akurat
-4. **Validasi Data**: Cek konsistensi data antar tabel
+2. **Monitor Stock**: Cek stok produk secara berkala
+3. **Update Status**: Pastikan status pesanan akurat
+4. **Image Optimization**: Kompres gambar untuk performance
+5. **Security**: Ganti password default admin
 
 #### Common Tasks:
-- **Bus Maintenance**: Update status bus ke 'maintenance'
-- **Schedule Management**: Buat jadwal rutin
-- **Payment Verification**: Konfirmasi pembayaran manual
-- **User Support**: Bantu user dengan masalah booking
+- **Product Management**: Update produk dan harga
+- **Order Processing**: Proses pesanan customer
+- **Customer Support**: Bantu customer dengan masalah
+- **Content Management**: Update kategori dan deskripsi
 
 ---
 
@@ -193,13 +227,18 @@ Buka browser dan akses: `http://localhost/UAS_PWEB`
 
 ### Role-Based Access:
 - **Admin**: Full access ke semua fitur
-- **Operator**: Access terbatas (tanpa user management)
-- **User**: Hanya fitur booking dan profil
+- **Customer**: Hanya fitur shopping dan profil
 
 ### Session Management:
 - Auto-logout setelah periode inactive
 - Session hijacking protection
 - Secure cookie handling
+
+### Data Protection:
+- Password hashing (MD5, recommended: bcrypt)
+- SQL injection protection
+- XSS protection
+- Input validation
 
 ---
 
@@ -207,17 +246,18 @@ Buka browser dan akses: `http://localhost/UAS_PWEB`
 
 ### Masalah Login:
 - **Wrong credentials**: Periksa username/password
-- **Account not found**: Hubungi admin untuk registrasi
+- **Account not found**: Pastikan sudah registrasi
+- **Session expired**: Login ulang
 
-### Masalah Booking:
-- **Seat unavailable**: Pilih kursi lain
-- **Schedule not found**: Refresh halaman atau pilih jadwal lain
+### Masalah Shopping:
+- **Add to cart failed**: Cek stok produk
+- **Checkout error**: Pastikan form terisi lengkap
 - **Payment issues**: Hubungi admin untuk konfirmasi
 
 ### Masalah Teknis:
 - **Page not loading**: Refresh browser atau cek koneksi
+- **Image not showing**: Cek folder assets/img/products/
 - **Error messages**: Screenshot error dan laporkan ke admin
-- **Missing data**: Clear browser cache
 
 ---
 
@@ -225,15 +265,15 @@ Buka browser dan akses: `http://localhost/UAS_PWEB`
 
 ### Untuk Bantuan:
 1. **Technical Issues**: Hubungi administrator sistem
-2. **Booking Problems**: Gunakan fitur contact yang tersedia
+2. **Shopping Problems**: Gunakan fitur contact yang tersedia
 3. **Payment Issues**: Konfirmasi dengan admin
 
-### Jam Operasional:
-- **Senin - Minggu**: 06:00 - 22:00
-- **Customer Service**: 24/7
+### Kontak:
+- **Email**: nurtaliyah164@gmail.com
+- **Developer**: Nur Taliyah (NIM: 202312030)
 
 ---
 
-**🎉 Selamat menggunakan Bus Samarinda Lestari Management System!**
+**🎉 Selamat menggunakan ShoeBrand Store!**
 
 Jika ada pertanyaan atau masalah, jangan ragu untuk menghubungi tim support kami.
