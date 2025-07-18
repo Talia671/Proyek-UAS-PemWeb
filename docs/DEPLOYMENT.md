@@ -6,7 +6,7 @@
 - **NIM**: 202312030
 - **Email**: nurtaliyah164@gmail.com
 
-Panduan untuk deployment Bus Sekian Jaya Management System ke production environment.
+Panduan untuk deployment ShoeBrand Store E-commerce System ke production environment.
 
 ## 🚀 Pre-Deployment Checklist
 

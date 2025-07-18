@@ -1,6 +1,6 @@
 # Panduan Penggunaan
 
-Panduan ini menjelaskan cara menggunakan fitur-fitur dari aplikasi ShoeBrand Store, termasuk manajemen produk, keranjang belanja, dan proses checkout.
+Panduan ini menjelaskan cara menggunakan fitur-fitur dari aplikasi ShoeBrand Store, termasuk manajemen produk, keranjang belanja, dan proses checkout.
 
 ## 👤 Informasi Pribadi
 
@@ -8,7 +8,7 @@ Panduan ini menjelaskan cara menggunakan fitur-fitur dari aplikasi ShoeBrand St
 - **NIM**: 202312030
 - **Email**: nurtaliyah164@gmail.com
 
-Panduan lengkap penggunaan Bus Samarinda Lestari Management System untuk admin dan pengguna.
+Panduan lengkap penggunaan ShoeBrand Store E-commerce System untuk admin dan customer.
 
 ## 🎯 Akses Aplikasi
 
