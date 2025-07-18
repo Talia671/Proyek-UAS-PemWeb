@@ -1,125 +1,105 @@
 # ShoeBrand Store - E-commerce System
 
-Sebuah sistem e-commerce yang dirancang untuk menjual sepatu dan sandal dari berbagai merek ternama.
+Sebuah sistem e-commerce yang dirancang untuk menjual sepatu dan sandal dari berbagai merek ternama dengan fitur lengkap untuk pengguna dan administrator.
 
-## 🛍️ Fungsi Utama
+## 🛍️ Tentang Proyek
 
-- **Sistem Keranjang Belanja**: Pengguna dapat menambahkan produk ke keranjang dan melanjutkan ke pembayaran.
-- **Manajemen Produk**: Admin dapat mengelola produk, kategori, dan transaksi.
-- **Manajemen Pengguna**: Mengelola pengguna dengan peran berbeda.
-- **Pencatatan Aktivitas**: Log aktivitas pengguna untuk analisis lebih lanjut.
-
-## 🏗️ Teknologi yang Digunakan
-
-- **Backend**: PHP dengan database MySQL.
-- **Frontend**: HTML5, CSS3, Bootstrap, JavaScript.
-
-## 📊 Database
-
-Tabel yang mungkin ada: pengguna, produk, kategori, keranjang, transaksi, dll.
-
-## 📁 Struktur Proyek
-
-```
-project-root/
-├── admin/                  # Admin panel
-│   ├── ...
-├── includes/              # Include files
-│   ├── header.php         # Header template
-│   └── footer.php         # Footer template
-├── index.php              # Landing page
-├── products.php           # Product listing page
-├── cart.php               # Shopping cart page
-└── checkout.php           # Checkout process
-```
-
-Sistem Manajemen Bus yang dikembangkan untuk mengelola operasional Bus Sekian Jaya, termasuk pengelolaan jadwal, pemesanan tiket, dan administrasi bus.
-
-## 🚌 Tentang Proyek
-
-Bus Sekian Jaya Management System adalah aplikasi web berbasis PHP yang dirancang untuk mempermudah pengelolaan transportasi bus. Sistem ini menyediakan platform lengkap untuk admin dan pengguna dalam mengelola jadwal perjalanan, pemesanan tiket, dan operasional bus.
+ShoeBrand Store adalah aplikasi web berbasis PHP yang dikembangkan untuk memudahkan penjualan sepatu dan sandal secara online. Sistem ini menyediakan platform lengkap untuk admin dan pengguna dalam mengelola produk, transaksi, dan operasional toko online.
 
 ## ✨ Fitur Utama
 
-### 👤 Untuk Pengguna (User)
+### 👤 Untuk Pengguna (Customer)
 
-- **Registrasi & Login**: Sistem autentikasi pengguna
-- **Lihat Jadwal**: Melihat jadwal keberangkatan bus yang tersedia
-- **Pemesanan Tiket**: Booking tiket dengan pemilihan kursi
-- **Riwayat Pemesanan**: Melihat history booking dan status pembayaran
-- **Cetak Tiket**: Download/print tiket elektronik
-- **Profil**: Manage profil dan update informasi
+- **Registrasi & Login**: Sistem autentikasi pengguna yang aman
+- **Katalog Produk**: Menampilkan koleksi sepatu dan sandal terlengkap
+- **Pencarian & Filter**: Cari produk berdasarkan kategori, merek, atau harga
+- **Keranjang Belanja**: Tambahkan produk ke cart dan kelola pesanan
+- **Checkout**: Proses pembayaran yang mudah dan aman
+- **Riwayat Pembelian**: Lacak status pesanan dan history transaksi
 
 ### 🛠️ Untuk Administrator
 
-- **Dashboard Admin**: Overview sistem dan statistik
-- **Manajemen User**: Kelola akun pengguna
-- **Manajemen Bus**: CRUD data bus dan armada
-- **Manajemen Rute**: Kelola rute perjalanan
-- **Manajemen Jadwal**: Buat dan kelola jadwal keberangkatan
-- **Manajemen Transaksi**: Monitor pembayaran dan transaksi
-- **Laporan**: Generate berbagai laporan operasional
-- **Activity Logs**: Tracking aktivitas user
+- **Dashboard Admin**: Overview penjualan dan statistik toko
+- **Manajemen Produk**: CRUD produk dengan upload gambar
+- **Manajemen Kategori**: Kelola kategori produk
+- **Manajemen User**: Kelola akun pengguna dan admin
+- **Manajemen Transaksi**: Monitor dan kelola pesanan
+- **Laporan**: Generate laporan penjualan dan analitik
+- **Activity Logs**: Tracking aktivitas sistem
 
 ## 🏗️ Teknologi yang Digunakan
 
 - **Backend**: PHP 7.4+
-- **Database**: MySQL 5.7+
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Framework CSS**: Bootstrap 4.5
+- **Database**: MySQL 5.7+ (shoe_store)
+- **Frontend**: HTML5, CSS3, Bootstrap 5
+- **JavaScript**: Vanilla JS untuk interaktivitas
 - **Icons**: Font Awesome 5.15
 - **Server**: Apache (XAMPP)
 
 ## 📁 Struktur Proyek
 
 ```
-UAS_PWEB/
-├── admin/                  # Panel administrasi
-│   ├── dashboard.php
-│   ├── manage_*.php       # CRUD modules
-│   └── add_*.php         # Form tambah data
-├── config/               # Konfigurasi
-│   └── database.php      # Koneksi database
-├── includes/             # File include
-│   ├── auth.php         # Sistem autentikasi
-│   ├── header.php       # Header template
-│   └── footer.php       # Footer template
-├── docs/                # Dokumentasi
-│   ├── INSTALLATION.md  # Panduan instalasi
-│   ├── DATABASE.md      # Dokumentasi database
-│   └── USAGE.md        # Panduan penggunaan
-├── assets/             # Asset statis (jika ada)
-├── index.php           # Halaman utama
-├── login.php           # Halaman login
-├── schedules.php       # Daftar jadwal
-├── booking.php         # Pemesanan tiket
-├── my_bookings.php     # Riwayat booking
-└── profile.php         # Profil pengguna
+ShoeBrand-Store/
+├── admin/                     # Panel administrasi
+│   ├── ajax/                 # AJAX handlers
+│   ├── includes/             # Admin templates
+│   ├── categories.php        # Manajemen kategori
+│   ├── index.php            # Dashboard admin
+│   ├── products.php         # Manajemen produk
+│   ├── reports.php          # Laporan penjualan
+│   ├── settings.php         # Pengaturan sistem
+│   ├── transactions.php     # Manajemen transaksi
+│   └── user.php             # Manajemen pengguna
+├── ajax/                     # AJAX untuk user
+│   ├── add_to_cart.php      # Tambah ke keranjang
+│   ├── remove_from_cart.php # Hapus dari keranjang
+│   └── update_cart.php      # Update keranjang
+├── api/                      # REST API endpoints
+│   └── cart_operations.php  # Operasi keranjang
+├── assets/                   # Asset statis
+│   ├── css/                 # Stylesheet
+│   ├── js/                  # JavaScript
+│   └── img/                 # Images
+├── docs/                     # Dokumentasi
+│   ├── DATABASE.md          # Dokumentasi database
+│   ├── DEPLOYMENT.md        # Panduan deployment
+│   ├── INSTALLATION.md      # Panduan instalasi
+│   └── USAGE.md            # Panduan penggunaan
+├── includes/                 # Template files
+│   ├── header.php           # Header template
+│   └── footer.php           # Footer template
+├── config.php               # Konfigurasi database
+├── index.php               # Halaman utama
+├── login.php               # Halaman login
+├── register.php            # Halaman registrasi
+├── products.php            # Katalog produk
+├── cart.php                # Keranjang belanja
+├── checkout.php            # Proses checkout
+└── payment.php             # Proses pembayaran
 ```
 
 ## 🚀 Quick Start
 
 1. **Clone/Download** proyek ini
 2. **Setup** XAMPP dan jalankan Apache + MySQL
-3. **Import** database dari `database/bus_management.sql`
-4. **Konfigurasi** database di `config/database.php`
-5. **Akses** aplikasi melalui `http://localhost/UAS_PWEB`
+3. **Import** database dari `database/shoe_store.sql`
+4. **Konfigurasi** database di `config.php`
+5. **Akses** aplikasi melalui `http://localhost/backup.taliah`
 
 ## 📚 Dokumentasi Lengkap
 
 - 📖 [Panduan Instalasi](docs/INSTALLATION.md)
 - 🗄️ [Dokumentasi Database](docs/DATABASE.md)
+- 🚀 [Panduan Deployment](docs/DEPLOYMENT.md)
 - 📝 [Panduan Penggunaan](docs/USAGE.md)
 
 ## 👥 Default Akun
 
 ### Administrator
-
 - **Username**: `admin`
 - **Password**: `admin123`
 
 ### User Demo
-
 - **Username**: `user`
 - **Password**: `user123`
 

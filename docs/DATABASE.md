@@ -1,6 +1,6 @@
 # Dokumentasi Database
 
-Database shoe_store menyimpan semua informasi yang diperlukan untuk manajemen toko sepatu online, termasuk data pengguna, produk, kategori, pesanan, dan transaksi.
+Database 'shoe_store' menyimpan semua informasi yang diperlukan untuk manajemen toko sepatu online, termasuk data pengguna, produk, kategori, pesanan, dan transaksi.
 
 ## 👤 Informasi Pribadi
 
@@ -8,22 +8,23 @@ Database shoe_store menyimpan semua informasi yang diperlukan untuk manajemen 
 - **NIM**: 202312030
 - **Email**: nurtaliyah164@gmail.com
 
-Sistem Bus Samarinda Lestari menggunakan database MySQL dengan struktur relasional yang terorganisir dengan baik.
+ShoeBrand Store menggunakan database MySQL dengan struktur relasional yang terorganisir dengan baik untuk mendukung operasi e-commerce.
 
 ## 🗄️ Struktur Database
 
-Database `bus_management` terdiri dari 8 tabel utama yang saling berelasi:
+Database `shoe_store` terdiri dari beberapa tabel utama yang saling berelasi:
 
 ### 📋 Daftar Tabel
 
-1. **users** - Data pengguna sistem
-2. **routes** - Rute perjalanan bus
-3. **buses** - Data armada bus
-4. **schedules** - Jadwal keberangkatan
-5. **passengers** - Data penumpang
-6. **tickets** - Tiket pemesanan
-7. **transactions** - Data transaksi pembayaran
-8. **activity_logs** - Log aktivitas sistem
+1. **users** - Data pengguna sistem (admin dan customer)
+2. **categories** - Kategori produk (sepatu, sandal, dll)
+3. **products** - Data produk sepatu dan sandal
+4. **product_images** - Gambar produk (multiple images per product)
+5. **cart_items** - Item dalam keranjang belanja
+6. **orders** - Pesanan pelanggan
+7. **order_items** - Item dalam pesanan
+8. **transactions** - Data transaksi pembayaran
+9. **activity_logs** - Log aktivitas sistem
 
 ---
 
