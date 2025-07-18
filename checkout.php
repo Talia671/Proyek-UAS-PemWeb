@@ -342,7 +342,7 @@ include 'includes/header.php';
                     <?php if (!empty($selected_items)): ?>
                         <?php foreach ($selected_items as $item): ?>
                             <div class="product-item">
-                                <img src="<?php echo $item['image_url'] ?: 'assets/img/no-image.jpg'; ?>" alt="<?php echo $item['name']; ?>" class="product-image">
+                    <img src="<?php echo $item['image_url'] ?: SITE_URL . '/assets/img/no-image.jpg'; ?>" alt="<?php echo $item['name']; ?>" class="product-image">
                                 <div class="product-info">
                                     <div class="product-name"><?php echo $item['name']; ?></div>
                                     <div class="product-quantity"><?php echo $item['quantity']; ?> barang</div>

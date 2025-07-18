@@ -41,7 +41,7 @@ include 'includes/header.php';
             </div>
             <div class="col-lg-6">
                 <div class="hero-image text-center">
-                    <img src="assets/img/hero-shoes.svg" alt="Hero Shoes" class="img-fluid" style="max-height: 400px;">
+                    <img src="<?php echo SITE_URL; ?>/assets/img/hero-shoes.svg" alt="Hero Shoes" class="img-fluid" style="max-height: 400px;">
                 </div>
             </div>
         </div>
@@ -125,7 +125,7 @@ include 'includes/header.php';
                         <?php if ($product['image_url']): ?>
                             <img src="<?php echo $product['image_url']; ?>" alt="<?php echo $product['name']; ?>" class="card-img-top">
                         <?php else: ?>
-                            <img src="assets/img/no-image.jpg" alt="No Image" class="card-img-top">
+                            <img src="<?php echo SITE_URL; ?>/assets/img/no-image.jpg" alt="No Image" class="card-img-top">
                         <?php endif; ?>
                         <div class="product-badge">Baru</div>
                     </div>

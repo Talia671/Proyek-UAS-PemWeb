@@ -33,10 +33,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             
             // Redirect based on role
             if ($user['role_id'] == 1) {
-                redirect('admin/index.php');
+                header('Location: ' . SITE_URL . '/admin/index.php');
             } else {
-                redirect('index.php');
+                header('Location: ' . SITE_URL . '/index.php');
             }
+            exit();
         } else {
             $error = 'Email atau password salah';
         }

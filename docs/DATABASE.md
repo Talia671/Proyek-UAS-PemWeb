@@ -20,11 +20,29 @@ Database `shoe_store` terdiri dari beberapa tabel utama yang saling berelasi:
 2. **categories** - Kategori produk (sepatu, sandal, dll)
 3. **products** - Data produk sepatu dan sandal
 4. **product_images** - Gambar produk (multiple images per product)
-5. **cart_items** - Item dalam keranjang belanja
+5. **carts** - Item dalam keranjang belanja
 6. **orders** - Pesanan pelanggan
 7. **order_items** - Item dalam pesanan
 8. **transactions** - Data transaksi pembayaran
 9. **activity_logs** - Log aktivitas sistem
+
+### 📊 Tabel Berdasarkan File PHP
+
+Berdasarkan struktur aplikasi yang ada:
+
+#### Core Tables (Sudah Ada):
+- `users` - Sistem autentikasi
+- `categories` - Kategori produk
+- `products` - Master produk
+- `product_images` - Gambar produk
+- `carts` - Keranjang belanja
+- `activity_logs` - Log aktivitas
+
+#### Additional Tables (Dibutuhkan):
+- `orders` - Master pesanan
+- `order_items` - Detail pesanan
+- `transactions` - Pembayaran
+- `roles` - Role pengguna (admin/customer)
 
 ---
 

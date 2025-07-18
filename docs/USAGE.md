@@ -150,14 +150,14 @@ Buka browser dan akses: `http://localhost/backup.taliah`
 - **Recent Activity**: Log aktivitas terbaru
 - **Sales Chart**: Grafik penjualan (jika ada)
 
-#### Menu Sidebar:
-- 🏠 **Dashboard**: Halaman utama admin
-- 👥 **Manage Users**: Kelola pengguna
-- 🏷️ **Manage Categories**: Kelola kategori produk
-- 🛍️ **Manage Products**: Kelola produk
-- 💳 **Manage Transactions**: Monitor transaksi
-- 📊 **Reports**: Laporan penjualan
-- ⚙️ **Settings**: Pengaturan sistem
+#### Menu Sidebar (Berdasarkan File yang Ada):
+- 🏠 **Dashboard**: `admin/index.php`
+- 👥 **Manage Users**: `admin/user.php`
+- 🏷️ **Manage Categories**: `admin/categories.php`
+- 🛍️ **Manage Products**: `admin/products.php`
+- 💳 **Manage Transactions**: `admin/transactions.php`
+- 📊 **Reports**: `admin/reports.php`
+- ⚙️ **Settings**: `admin/settings.php`
 
 ### 3. **Manajemen Data**
 
