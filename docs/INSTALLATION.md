@@ -1,5 +1,7 @@
 # Instalasi
 
+Panduan ini menjelaskan langkah-langkah untuk menginstal dan mengkonfigurasi ShoeBrand Store pada server lokal Anda.
+
 ## 👤 Informasi Pribadi
 
 - **Nama**: Nur Taliyah
