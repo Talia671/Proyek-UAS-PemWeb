@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#f8f9fa"/>
+  <rect x="50" y="50" width="300" height="200" fill="#e9ecef" rx="10"/>
+  <circle cx="120" cy="120" r="15" fill="#6c757d"/>
+  <rect x="150" y="110" width="180" height="8" fill="#6c757d" rx="4"/>
+  <rect x="150" y="130" width="120" height="6" fill="#adb5bd" rx="3"/>
+  <rect x="150" y="145" width="200" height="6" fill="#adb5bd" rx="3"/>
+  <rect x="150" y="160" width="160" height="6" fill="#adb5bd" rx="3"/>
+  <rect x="50" y="220" width="80" height="25" fill="#007bff" rx="5"/>
+  <text x="90" y="237" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Lihat Detail</text>
+  <text x="200" y="280" text-anchor="middle" fill="#6c757d" font-family="Arial" font-size="14">Gambar Produk</text>
+</svg>
