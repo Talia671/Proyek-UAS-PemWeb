@@ -1,6 +1,6 @@
 # Dokumentasi Database
 
-Database 'shoe_store' menyimpan semua informasi yang diperlukan untuk manajemen toko sepatu online, termasuk data pengguna, produk, kategori, pesanan, dan transaksi.
+Database `shoe_store` menyimpan semua informasi yang diperlukan untuk manajemen toko sepatu online, termasuk data pengguna, produk, kategori, pesanan, dan transaksi.
 
 ## 👤 Informasi Pribadi
 
@@ -16,33 +16,32 @@ Database `shoe_store` terdiri dari beberapa tabel utama yang saling berelasi:
 
 ### 📋 Daftar Tabel
 
-1. **users** - Data pengguna sistem (admin dan customer)
-2. **categories** - Kategori produk (sepatu, sandal, dll)
-3. **products** - Data produk sepatu dan sandal
-4. **product_images** - Gambar produk (multiple images per product)
-5. **carts** - Item dalam keranjang belanja
-6. **orders** - Pesanan pelanggan
-7. **order_items** - Item dalam pesanan
-8. **transactions** - Data transaksi pembayaran
+1. **roles** - Role pengguna (Admin, Customer)
+2. **users** - Data pengguna sistem (admin dan customer)
+3. **categories** - Kategori produk (sepatu, sandal, dll)
+4. **products** - Data produk sepatu dan sandal
+5. **product_images** - Gambar produk (multiple images per product)
+6. **carts** - Item dalam keranjang belanja
+7. **orders** - Pesanan pelanggan
+8. **order_items** - Item dalam pesanan
 9. **activity_logs** - Log aktivitas sistem
+10. **settings** - Pengaturan sistem
 
-### 📊 Tabel Berdasarkan File PHP
+### 📊 Tabel Berdasarkan Fungsi
 
-Berdasarkan struktur aplikasi yang ada:
-
-#### Core Tables (Sudah Ada):
-- `users` - Sistem autentikasi
-- `categories` - Kategori produk
-- `products` - Master produk
-- `product_images` - Gambar produk
-- `carts` - Keranjang belanja
-- `activity_logs` - Log aktivitas
-
-#### Additional Tables (Dibutuhkan):
-- `orders` - Master pesanan
-- `order_items` - Detail pesanan
-- `transactions` - Pembayaran
-- `roles` - Role pengguna (admin/customer)
+#### Core Tables:
+- `roles` - Role management (Admin/Customer)
+- `users` - Sistem autentikasi dan user management
+- `categories` - Kategori produk sepatu dan sandal
+- `products` - Master produk dengan informasi lengkap
+- `product_images` - Gambar produk (multiple images per product)
+- `carts` - Keranjang belanja untuk proses pembelian
+- `orders` - Master pesanan pelanggan
+- `order_items` - Detail item dalam pesanan
+- `activity_logs` - Log aktivitas sistem untuk audit
+- `settings` - Pengaturan sistem toko
+- `activity_logs` - Log aktivitas sistem
+- `settings` - Pengaturan sistem toko
 
 ---
 
