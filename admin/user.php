@@ -426,9 +426,9 @@ require_once 'includes/admin_header.php';
                             <td>
                                 <div>
                                     <strong><?php echo htmlspecialchars($user['name']); ?></strong>
-                                    <?php if ($user['address']): ?>
+<?php if (!empty($user['address'])): ?>
                                     <br><small class="text-muted"><?php echo htmlspecialchars(substr($user['address'], 0, 50)); ?>...</small>
-                                    <?php endif; ?>
+<?php endif; ?>
                                 </div>
                             </td>
                             <td><?php echo htmlspecialchars($user['email']); ?></td>
@@ -439,8 +439,8 @@ require_once 'includes/admin_header.php';
                             </td>
                             <td><?php echo htmlspecialchars($user['phone'] ?? '-'); ?></td>
                             <td>
-                                <span class="badge bg-<?php echo $user['status'] ? 'success' : 'secondary'; ?>">
-                                    <?php echo $user['status'] ? 'Aktif' : 'Nonaktif'; ?>
+                                <span class="badge bg-<?php echo isset($user['status']) && $user['status'] ? 'success' : 'secondary'; ?>">
+                                    <?php echo isset($user['status']) && $user['status'] ? 'Aktif' : 'Nonaktif'; ?>
                                 </span>
                             </td>
                             <td><?php echo date('d/m/Y', strtotime($user['created_at'])); ?></td>
@@ -451,9 +451,9 @@ require_once 'includes/admin_header.php';
                                         <i class="fas fa-edit"></i>
                                     </button>
                                     <?php if ($user['id'] != $_SESSION['user_id']): ?>
-                                    <button type="button" class="btn btn-outline-<?php echo $user['status'] ? 'warning' : 'success'; ?>" 
-                                            onclick="toggleStatus(<?php echo $user['id']; ?>, <?php echo $user['status'] ? 0 : 1; ?>)">
-                                        <i class="fas fa-<?php echo $user['status'] ? 'ban' : 'check'; ?>"></i>
+                                    <button type="button" class="btn btn-outline-<?php echo isset($user['status']) && $user['status'] ? 'warning' : 'success'; ?>" 
+                                            onclick="toggleStatus(<?php echo $user['id']; ?>, <?php echo isset($user['status']) && $user['status'] ? 0 : 1; ?>)">
+                                        <i class="fas fa-<?php echo isset($user['status']) && $user['status'] ? 'ban' : 'check'; ?>"></i>
                                     </button>
                                     <button type="button" class="btn btn-outline-danger" 
                                             onclick="deleteUser(<?php echo $user['id']; ?>, '<?php echo htmlspecialchars($user['name']); ?>')">

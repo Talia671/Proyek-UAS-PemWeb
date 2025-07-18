@@ -19,7 +19,7 @@ $sales_query = "
         SUM(total_amount) as total_sales,
         AVG(total_amount) as avg_order_value
     FROM orders 
-    WHERE status = 'completed' 
+    WHERE status IN ('delivered', 'processing', 'shipped') 
     AND DATE(created_at) BETWEEN ? AND ?
     GROUP BY DATE(created_at)
     ORDER BY date DESC
@@ -37,7 +37,7 @@ $stats_query = "
         AVG(total_amount) as avg_order_value,
         COUNT(DISTINCT user_id) as unique_customers
     FROM orders 
-    WHERE status = 'completed' 
+    WHERE status IN ('delivered', 'processing', 'shipped') 
     AND DATE(created_at) BETWEEN ? AND ?
 ";
 
@@ -55,7 +55,7 @@ $top_products_query = "
     FROM order_items oi
     JOIN products p ON oi.product_id = p.id
     JOIN orders o ON oi.order_id = o.id
-    WHERE o.status = 'completed' 
+    WHERE o.status IN ('delivered', 'processing', 'shipped') 
     AND DATE(o.created_at) BETWEEN ? AND ?
     GROUP BY p.id, p.name, p.price
     ORDER BY total_sold DESC
@@ -75,7 +75,7 @@ $customer_query = "
         SUM(o.total_amount) as total_spent
     FROM users u
     JOIN orders o ON u.id = o.user_id
-    WHERE o.status = 'completed' 
+    WHERE o.status IN ('delivered', 'processing', 'shipped') 
     AND DATE(o.created_at) BETWEEN ? AND ?
     GROUP BY u.id, u.name, u.email
     ORDER BY total_spent DESC

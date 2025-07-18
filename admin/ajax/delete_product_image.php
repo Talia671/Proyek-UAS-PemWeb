@@ -37,8 +37,8 @@ try {
     }
     
     // Log activity
-    $stmt = $pdo->prepare("INSERT INTO activity_logs (user_id, action, description) VALUES (?, 'delete_product_image', ?)");
-    $stmt->execute([$_SESSION['user_id'], "Deleted product image: " . $image['image_url']]);
+        $stmt = $pdo->prepare("INSERT INTO activity_logs (user_id, activity) VALUES (?, ?)");
+        $stmt->execute([$_SESSION['user_id'], "Deleted product image ID: $image_id"]);
     
     echo json_encode(['success' => true, 'message' => 'Image deleted successfully']);
 } catch (Exception $e) {

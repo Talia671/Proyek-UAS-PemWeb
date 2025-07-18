@@ -38,21 +38,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 mkdir($upload_dir, 0755, true);
                             }
                             
+                            $upload_errors = [];
+                            $first_image_uploaded = false;
+                            
                             foreach ($_FILES['images']['name'] as $key => $filename) {
                                 if (!empty($filename)) {
+                                    // Check for upload errors
+                                    if ($_FILES['images']['error'][$key] !== UPLOAD_ERR_OK) {
+                                        $upload_errors[] = "Error uploading $filename: " . $_FILES['images']['error'][$key];
+                                        continue;
+                                    }
+                                    
                                     $file_ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
-                                    $allowed_ext = ['jpg', 'jpeg', 'png', 'gif'];
+                                    $allowed_ext = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
                                     
                                     if (in_array($file_ext, $allowed_ext)) {
                                         $new_filename = $product_id . '_' . time() . '_' . $key . '.' . $file_ext;
                                         $upload_path = $upload_dir . $new_filename;
                                         
                                         if (move_uploaded_file($_FILES['images']['tmp_name'][$key], $upload_path)) {
+                                            // Set first successfully uploaded image as primary
+                                            $is_primary = !$first_image_uploaded ? 1 : 0;
                                             $stmt = $pdo->prepare("INSERT INTO product_images (product_id, image_url, is_primary) VALUES (?, ?, ?)");
-                                            $stmt->execute([$product_id, 'assets/img/products/' . $new_filename, $key == 0 ? 1 : 0]);
+                                            $stmt->execute([$product_id, 'assets/img/products/' . $new_filename, $is_primary]);
+                                            $first_image_uploaded = true;
+                                        } else {
+                                            $upload_errors[] = "Gagal memindahkan file $filename";
                                         }
+                                    } else {
+                                        $upload_errors[] = "Format file $filename tidak didukung";
                                     }
                                 }
+                            }
+                            
+                            if (!empty($upload_errors)) {
+                                $_SESSION['error'] = implode('<br>', $upload_errors);
                             }
                         }
                         
@@ -93,21 +113,46 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 mkdir($upload_dir, 0755, true);
                             }
                             
+                            $upload_errors = [];
+                            // Check if product has any existing images
+                            $stmt = $pdo->prepare("SELECT COUNT(*) FROM product_images WHERE product_id = ?");
+                            $stmt->execute([$id]);
+                            $existing_images = $stmt->fetchColumn();
+                            
+                            $first_image_uploaded = false;
+                            
                             foreach ($_FILES['images']['name'] as $key => $filename) {
                                 if (!empty($filename)) {
+                                    // Check for upload errors
+                                    if ($_FILES['images']['error'][$key] !== UPLOAD_ERR_OK) {
+                                        $upload_errors[] = "Error uploading $filename: " . $_FILES['images']['error'][$key];
+                                        continue;
+                                    }
+                                    
                                     $file_ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
-                                    $allowed_ext = ['jpg', 'jpeg', 'png', 'gif'];
+                                    $allowed_ext = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
                                     
                                     if (in_array($file_ext, $allowed_ext)) {
                                         $new_filename = $id . '_' . time() . '_' . $key . '.' . $file_ext;
                                         $upload_path = $upload_dir . $new_filename;
                                         
                                         if (move_uploaded_file($_FILES['images']['tmp_name'][$key], $upload_path)) {
+                                            // Set as primary if it's the first image for this product
+                                            $is_primary = ($existing_images == 0 && !$first_image_uploaded) ? 1 : 0;
                                             $stmt = $pdo->prepare("INSERT INTO product_images (product_id, image_url, is_primary) VALUES (?, ?, ?)");
-                                            $stmt->execute([$id, 'assets/img/products/' . $new_filename, 0]);
+                                            $stmt->execute([$id, 'assets/img/products/' . $new_filename, $is_primary]);
+                                            $first_image_uploaded = true;
+                                        } else {
+                                            $upload_errors[] = "Gagal memindahkan file $filename";
                                         }
+                                    } else {
+                                        $upload_errors[] = "Format file $filename tidak didukung";
                                     }
                                 }
+                            }
+                            
+                            if (!empty($upload_errors)) {
+                                $_SESSION['error'] = implode('<br>', $upload_errors);
                             }
                         }
                         

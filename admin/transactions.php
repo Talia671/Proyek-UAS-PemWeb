@@ -14,14 +14,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     
     if (in_array($new_status, $allowed_statuses)) {
         try {
-            $stmt = $pdo->prepare("UPDATE transactions SET status = ? WHERE id = ?");
+            $stmt = $pdo->prepare("UPDATE orders SET status = ? WHERE id = ?");
             $stmt->execute([$new_status, $transaction_id]);
             
             // Log activity
-            $stmt = $pdo->prepare("INSERT INTO activity_logs (user_id, action, description) VALUES (?, 'update_transaction_status', ?)");
-            $stmt->execute([$_SESSION['user_id'], "Updated transaction #$transaction_id status to $new_status"]);
+            $stmt = $pdo->prepare("INSERT INTO activity_logs (user_id, activity) VALUES (?, ?)");
+            $stmt->execute([$_SESSION['user_id'], "Updated order #$transaction_id status to $new_status"]);
             
-            $_SESSION['success'] = "Transaction status updated successfully!";
+            $_SESSION['success'] = "Order status updated successfully!";
         } catch (Exception $e) {
             $_SESSION['error'] = "Error updating status: " . $e->getMessage();
         }
@@ -46,13 +46,14 @@ $where_conditions = [];
 $params = [];
 
 if (!empty($status_filter)) {
-    $where_conditions[] = "t.status = ?";
+    $where_conditions[] = "o.status = ?";
     $params[] = $status_filter;
 }
 
 if (!empty($search)) {
-    $where_conditions[] = "(u.name LIKE ? OR u.email LIKE ? OR t.id LIKE ?)";
+    $where_conditions[] = "(u.name LIKE ? OR u.email LIKE ? OR o.id LIKE ? OR o.order_number LIKE ?)";
     $search_param = "%$search%";
+    $params[] = $search_param;
     $params[] = $search_param;
     $params[] = $search_param;
     $params[] = $search_param;
@@ -60,17 +61,17 @@ if (!empty($search)) {
 
 $where_clause = !empty($where_conditions) ? "WHERE " . implode(" AND ", $where_conditions) : "";
 
-// Get transactions
+// Get transactions (orders)
 try {
     $stmt = $pdo->prepare("
-        SELECT t.*, u.name as username, u.email,
-               COUNT(ti.id) as item_count
-        FROM transactions t
-        JOIN users u ON t.user_id = u.id
-        LEFT JOIN transaction_items ti ON t.id = ti.transaction_id
+        SELECT o.*, u.name as username, u.email,
+               COUNT(oi.id) as item_count
+        FROM orders o
+        JOIN users u ON o.user_id = u.id
+        LEFT JOIN order_items oi ON o.id = oi.order_id
         $where_clause
-        GROUP BY t.id
-        ORDER BY t.created_at DESC
+        GROUP BY o.id
+        ORDER BY o.created_at DESC
         LIMIT $limit OFFSET $offset
     ");
     $stmt->execute($params);
@@ -78,9 +79,9 @@ try {
     
     // Get total count for pagination
     $count_stmt = $pdo->prepare("
-        SELECT COUNT(DISTINCT t.id)
-        FROM transactions t
-        JOIN users u ON t.user_id = u.id
+        SELECT COUNT(DISTINCT o.id)
+        FROM orders o
+        JOIN users u ON o.user_id = u.id
         $where_clause
     ");
     $count_stmt->execute($params);
@@ -89,7 +90,7 @@ try {
 } catch (Exception $e) {
     $transactions = [];
     $total_pages = 0;
-    $_SESSION['error'] = "Error fetching transactions: " . $e->getMessage();
+    $_SESSION['error'] = "Error fetching orders: " . $e->getMessage();
 }
 
 include 'includes/admin_header.php';
@@ -163,20 +164,20 @@ include 'includes/admin_header.php';
                                 </tr>
                                 <?php else: ?>
                                 <?php foreach ($transactions as $transaction): ?>
-                                <tr>
-                                    <td><strong>#<?= $transaction['id'] ?></strong></td>
-                                    <td>
-                                        <div>
-                                            <strong><?= htmlspecialchars($transaction['username']) ?></strong>
-                                        </div>
-                                        <small class="text-muted"><?= htmlspecialchars($transaction['email']) ?></small>
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-secondary"><?= $transaction['item_count'] ?> items</span>
-                                    </td>
-                                    <td>
-                                        <strong>Rp <?= number_format($transaction['total_amount'], 0, ',', '.') ?></strong>
-                                    </td>
+                            <tr>
+                                <td><strong>#<?= $transaction['order_number'] ?></strong></td>
+                                <td>
+                                    <div>
+                                        <strong><?= htmlspecialchars($transaction['username']) ?></strong>
+                                    </div>
+                                    <small class="text-muted"><?= htmlspecialchars($transaction['email']) ?></small>
+                                </td>
+                                <td>
+                                    <span class="badge bg-secondary"><?= $transaction['item_count'] ?> items</span>
+                                </td>
+                                <td>
+                                    <strong>Rp <?= number_format($transaction['total_amount'], 0, ',', '.') ?></strong>
+                                </td>
                                     <td>
                                         <?php
                                         $status_colors = [
