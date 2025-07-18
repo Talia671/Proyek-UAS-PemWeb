@@ -1,3 +1,17 @@
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+    function downloadReceipt() {
+        const receipt = document.querySelector('.success-card');
+        html2canvas(receipt).then(canvas => {
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL('image/jpeg');
+            link.download = 'receipt.jpg';
+            link.click();
+        });
+    }
+</script>
+
 <?php
 require_once 'config.php';
 
@@ -294,7 +308,8 @@ include 'includes/header.php';
                 Jika Anda memiliki pertanyaan, silakan menghubungi kami. <a href="#" style="color: #007bff;">Klik Disini</a>
             </div>
             
-            <a href="index.php" class="btn-continue">KEMBALI BERBELANJA</a>
+    <a href="index.php" class="btn-continue">KEMBALI BERBELANJA</a>
+    <button class="btn-continue" onclick="downloadReceipt()">DOWNLOAD STRUK</button>
         </div>
     </div>
 </div>

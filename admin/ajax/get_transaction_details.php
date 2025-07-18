@@ -18,10 +18,10 @@ $transaction_id = intval($_GET['id']);
 try {
     // Get transaction details
     $stmt = $pdo->prepare("
-        SELECT t.*, u.username, u.email, u.full_name, u.phone
-        FROM transactions t
-        JOIN users u ON t.user_id = u.id
-        WHERE t.id = ?
+        SELECT o.*, u.name as username, u.email, u.name as full_name
+        FROM orders o
+        JOIN users u ON o.user_id = u.id
+        WHERE o.id = ?
     ");
     $stmt->execute([$transaction_id]);
     $transaction = $stmt->fetch();
@@ -33,10 +33,10 @@ try {
     
     // Get transaction items
     $stmt = $pdo->prepare("
-        SELECT ti.*, p.name as product_name, p.brand
-        FROM transaction_items ti
-        JOIN products p ON ti.product_id = p.id
-        WHERE ti.transaction_id = ?
+        SELECT oi.*, p.name as product_name, p.brand
+        FROM order_items oi
+        JOIN products p ON oi.product_id = p.id
+        WHERE oi.order_id = ?
     ");
     $stmt->execute([$transaction_id]);
     $items = $stmt->fetchAll();
@@ -57,8 +57,8 @@ try {
             <h6>Transaction Information</h6>
             <table class="table table-sm">
                 <tr>
-                    <td><strong>Transaction ID:</strong></td>
-                    <td>#' . $transaction['id'] . '</td>
+                    <td><strong>Order Number:</strong></td>
+                    <td>#' . $transaction['order_number'] . '</td>
                 </tr>
                 <tr>
                     <td><strong>Status:</strong></td>
@@ -93,13 +93,14 @@ try {
         </div>
     </div>';
     
-    if (!empty($transaction['shipping_address'])) {
+    if (!empty($transaction['address'])) {
         $html .= '
         <div class="row mt-3">
             <div class="col-12">
                 <h6>Shipping Address</h6>
                 <div class="alert alert-light">
-                    ' . nl2br(htmlspecialchars($transaction['shipping_address'])) . '
+                    ' . nl2br(htmlspecialchars($transaction['address'])) . '<br>
+                    ' . htmlspecialchars($transaction['city']) . ', ' . htmlspecialchars($transaction['state']) . ' ' . htmlspecialchars($transaction['zip']) . '
                 </div>
             </div>
         </div>';

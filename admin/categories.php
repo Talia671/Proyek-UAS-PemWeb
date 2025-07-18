@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $stmt->execute([$name, $description]);
                         
                         // Log activity
-                        $stmt = $pdo->prepare("INSERT INTO activity_logs (user_id, action, description) VALUES (?, 'add_category', ?)");
+                        $stmt = $pdo->prepare("INSERT INTO activity_logs (user_id, activity) VALUES (?, ?)");
                         $stmt->execute([$_SESSION['user_id'], "Added category: $name"]);
                         
                         $_SESSION['success'] = "Category added successfully!";
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $stmt->execute([$name, $description, $id]);
                         
                         // Log activity
-                        $stmt = $pdo->prepare("INSERT INTO activity_logs (user_id, action, description) VALUES (?, 'edit_category', ?)");
+                        $stmt = $pdo->prepare("INSERT INTO activity_logs (user_id, activity) VALUES (?, ?)");
                         $stmt->execute([$_SESSION['user_id'], "Updated category: $name"]);
                         
                         $_SESSION['success'] = "Category updated successfully!";
@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $stmt->execute([$id]);
                         
                         // Log activity
-                        $stmt = $pdo->prepare("INSERT INTO activity_logs (user_id, action, description) VALUES (?, 'delete_category', ?)");
+                        $stmt = $pdo->prepare("INSERT INTO activity_logs (user_id, activity) VALUES (?, ?)");
                         $stmt->execute([$_SESSION['user_id'], "Deleted category: $category_name"]);
                         
                         $_SESSION['success'] = "Category deleted successfully!";

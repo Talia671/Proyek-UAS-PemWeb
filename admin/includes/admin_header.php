@@ -23,9 +23,18 @@ requireAdmin();
         .admin-sidebar {
             min-height: 100vh;
             background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            z-index: 1000;
+            transition: left 0.3s ease;
+        }
+        .admin-sidebar.show {
+            left: 0;
         }
         .admin-content {
-            margin-left: 250px;
+            margin-left: 0;
             min-height: 100vh;
         }
         .sidebar-nav .nav-link {
@@ -45,32 +54,111 @@ requireAdmin();
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             padding: 1rem 0;
         }
-        @media (max-width: 768px) {
-            .admin-content {
-                margin-left: 0;
+        .hamburger-menu {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+        .hamburger-menu:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.5);
+            background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+        }
+        .hamburger-lines {
+            width: 20px;
+            height: 14px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .hamburger-lines span {
+            width: 100%;
+            height: 2px;
+            background: white;
+            border-radius: 1px;
+            transition: all 0.3s ease;
+        }
+        .hamburger-menu.active .hamburger-lines span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger-menu.active .hamburger-lines span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger-menu.active .hamburger-lines span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .sidebar-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .admin-brand {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+        .pulse-effect {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
             }
-            .admin-sidebar {
-                position: fixed;
-                top: 0;
-                left: -250px;
-                width: 250px;
-                z-index: 1000;
-                transition: left 0.3s ease;
+            50% {
+                box-shadow: 0 4px 15px rgba(52, 152, 219, 0.6);
             }
-            .admin-sidebar.show {
-                left: 0;
+            100% {
+                box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
             }
         }
     </style>
 </head>
 <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-menu" id="hamburger-menu">
+        <div class="hamburger-lines">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
     <!-- Sidebar -->
-    <nav class="admin-sidebar position-fixed top-0 start-0" style="width: 250px;">
+    <nav class="admin-sidebar" id="admin-sidebar">
         <div class="p-3">
-            <a href="<?php echo SITE_URL; ?>/admin/" class="navbar-brand text-white fw-bold d-block text-center mb-4">
-                <i class="fas fa-shoe-prints me-2"></i>
-                Admin Panel
-            </a>
+            <div class="admin-brand">
+                <a href="<?php echo SITE_URL; ?>/admin/" class="navbar-brand text-white fw-bold d-block text-center">
+                    <i class="fas fa-shoe-prints me-2"></i>
+                    Admin Panel
+                </a>
+            </div>
             
             <ul class="nav flex-column sidebar-nav">
                 <li class="nav-item">
@@ -116,11 +204,6 @@ requireAdmin();
                     </a>
                 </li>
                 <li class="nav-item mt-3">
-                    <a class="nav-link" href="<?php echo SITE_URL; ?>">
-                        <i class="fas fa-globe me-2"></i>Lihat Website
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="<?php echo SITE_URL; ?>/logout.php">
                         <i class="fas fa-sign-out-alt me-2"></i>Logout
                     </a>
@@ -136,10 +219,7 @@ requireAdmin();
             <div class="container-fluid">
                 <div class="row align-items-center">
                     <div class="col">
-                        <button class="btn btn-outline-secondary d-md-none" id="sidebar-toggle">
-                            <i class="fas fa-bars"></i>
-                        </button>
-                        <h4 class="mb-0 d-inline-block ms-2"><?php echo $page_title ?? 'Admin Panel'; ?></h4>
+                        <h4 class="mb-0" style="margin-left: 80px;"><?php echo $page_title ?? 'Admin Panel'; ?></h4>
                     </div>
                     <div class="col-auto">
                         <div class="dropdown">
