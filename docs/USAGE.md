@@ -1,5 +1,7 @@
 # Panduan Penggunaan
 
+Panduan ini menjelaskan cara menggunakan fitur-fitur dari aplikasi ShoeBrand Store, termasuk manajemen produk, keranjang belanja, dan proses checkout.
+
 ## 👤 Informasi Pribadi
 
 - **Nama**: Nur Taliyah

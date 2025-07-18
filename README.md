@@ -1,4 +1,37 @@
-# Bus Sekian Jaya - Management System
+# ShoeBrand Store - E-commerce System
+
+Sebuah sistem e-commerce yang dirancang untuk menjual sepatu dan sandal dari berbagai merek ternama.
+
+## 🛍️ Fungsi Utama
+
+- **Sistem Keranjang Belanja**: Pengguna dapat menambahkan produk ke keranjang dan melanjutkan ke pembayaran.
+- **Manajemen Produk**: Admin dapat mengelola produk, kategori, dan transaksi.
+- **Manajemen Pengguna**: Mengelola pengguna dengan peran berbeda.
+- **Pencatatan Aktivitas**: Log aktivitas pengguna untuk analisis lebih lanjut.
+
+## 🏗️ Teknologi yang Digunakan
+
+- **Backend**: PHP dengan database MySQL.
+- **Frontend**: HTML5, CSS3, Bootstrap, JavaScript.
+
+## 📊 Database
+
+Tabel yang mungkin ada: pengguna, produk, kategori, keranjang, transaksi, dll.
+
+## 📁 Struktur Proyek
+
+```
+project-root/
+├── admin/                  # Admin panel
+│   ├── ...
+├── includes/              # Include files
+│   ├── header.php         # Header template
+│   └── footer.php         # Footer template
+├── index.php              # Landing page
+├── products.php           # Product listing page
+├── cart.php               # Shopping cart page
+└── checkout.php           # Checkout process
+```
 
 Sistem Manajemen Bus yang dikembangkan untuk mengelola operasional Bus Sekian Jaya, termasuk pengelolaan jadwal, pemesanan tiket, dan administrasi bus.
 

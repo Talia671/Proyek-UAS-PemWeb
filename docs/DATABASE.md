@@ -1,5 +1,7 @@
 # Dokumentasi Database
 
+Database shoe_store menyimpan semua informasi yang diperlukan untuk manajemen toko sepatu online, termasuk data pengguna, produk, kategori, pesanan, dan transaksi.
+
 ## 👤 Informasi Pribadi
 
 - **Nama**: Nur Taliyah
