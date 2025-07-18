@@ -98,7 +98,7 @@ requireAdmin();
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'users.php' ? 'active' : ''; ?>" 
+                    <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'user.php' ? 'active' : ''; ?>" 
                        href="<?php echo SITE_URL; ?>/admin/user.php">
                         <i class="fas fa-users me-2"></i>Pengguna
                     </a>

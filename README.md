@@ -82,9 +82,51 @@ ShoeBrand-Store/
 
 1. **Clone/Download** proyek ini
 2. **Setup** XAMPP dan jalankan Apache + MySQL
-3. **Import** database dari `database/shoe_store.sql`
+3. **Buat** database `shoe_store` di phpMyAdmin
 4. **Konfigurasi** database di `config.php`
 5. **Akses** aplikasi melalui `http://localhost/backup.taliah`
+
+## 🎯 Fitur Navigasi
+
+### 🏠 Halaman Utama
+- **URL**: `http://localhost/backup.taliah/index.php`
+- Hero section dengan koleksi terbaru
+- Kategori produk
+- Produk featured
+- Search bar
+
+### 🛍️ Halaman Produk
+- **URL**: `http://localhost/backup.taliah/products.php`
+- Katalog lengkap produk
+- Filter berdasarkan kategori
+- Pencarian produk
+
+### 🛒 Keranjang Belanja
+- **URL**: `http://localhost/backup.taliah/cart.php`
+- Manage items dalam cart
+- Update quantity
+- Lanjut ke checkout
+
+### 💳 Checkout
+- **URL**: `http://localhost/backup.taliah/checkout.php`
+- Form informasi pengiriman
+- Pilih metode pembayaran
+- Konfirmasi pesanan
+
+### 👤 Halaman User
+- **Login**: `http://localhost/backup.taliah/login.php`
+- **Register**: `http://localhost/backup.taliah/register.php`
+- **Profile**: `http://localhost/backup.taliah/profile.php` (jika ada)
+
+### 🔧 Admin Panel
+- **URL**: `http://localhost/backup.taliah/admin/`
+- **Dashboard**: `admin/index.php`
+- **Manage Products**: `admin/products.php`
+- **Manage Categories**: `admin/categories.php`
+- **Manage Users**: `admin/user.php`
+- **Transactions**: `admin/transactions.php`
+- **Reports**: `admin/reports.php`
+- **Settings**: `admin/settings.php`
 
 ## 📚 Dokumentasi Lengkap
 

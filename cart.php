@@ -255,7 +255,7 @@ include 'includes/header.php';
                     <div class="cart-item">
                         <input type="checkbox" name="selected_items[]" value="<?php echo $index; ?>" class="item-checkbox item-select">
                         
-                        <img src="<?php echo $item['image_url'] ?: 'assets/img/no-image.jpg'; ?>" alt="<?php echo $item['name']; ?>" class="item-image">
+                        <img src="<?php echo $item['image_url'] ?: SITE_URL . '/assets/img/no-image.jpg'; ?>" alt="<?php echo $item['name']; ?>" class="item-image">
                         
                         <div class="item-details">
                             <div class="item-name"><?php echo $item['name']; ?></div>
@@ -343,7 +343,7 @@ include 'includes/header.php';
         }
         
         function updateCartItem(cartId, quantity) {
-            fetch('api/cart_operations.php', {
+            fetch('<?php echo SITE_URL; ?>/api/cart_operations.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -367,7 +367,7 @@ include 'includes/header.php';
         }
         
         function deleteCartItem(cartId) {
-            fetch('api/cart_operations.php', {
+            fetch('<?php echo SITE_URL; ?>/api/cart_operations.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',

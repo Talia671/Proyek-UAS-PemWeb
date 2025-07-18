@@ -76,14 +76,14 @@ sudo mysql_secure_installation
 
 # Create database user
 mysql -u root -p
-CREATE DATABASE bus_management;
-CREATE USER 'busadmin'@'localhost' IDENTIFIED BY 'strong_password_here';
-GRANT ALL PRIVILEGES ON bus_management.* TO 'busadmin'@'localhost';
+CREATE DATABASE shoe_store;
+CREATE USER 'shoeadmin'@'localhost' IDENTIFIED BY 'strong_password_here';
+GRANT ALL PRIVILEGES ON shoe_store.* TO 'shoeadmin'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
 
-# Import database
-mysql -u busadmin -p bus_management < database/bus_management.sql
+# Import database (if SQL file exists)
+mysql -u shoeadmin -p shoe_store < database/shoe_store.sql
 ```
 
 #### C. Application Deployment
