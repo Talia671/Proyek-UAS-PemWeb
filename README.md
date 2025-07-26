@@ -6,7 +6,7 @@ Sebuah sistem e-commerce yang dirancang untuk menjual sepatu dan sandal dari ber
 
 ShoeBrand Store adalah aplikasi web berbasis PHP yang dikembangkan untuk memudahkan penjualan sepatu dan sandal secara online. Sistem ini menyediakan platform lengkap untuk admin dan pengguna dalam mengelola produk, transaksi, dan operasional toko online.
 
-Link Youtube  : 
+Link Youtube  : https://youtu.be/l-Q607-GLEY
 
 Link Aplikasi : https://taliah.mangaverse.my.id/ 
 
